@@ -1,0 +1,207 @@
+:root{
+    --body-background-color:#222831;
+    --background-color:#31363F;
+    --buttonarea-color:#EEEEEE;
+    --button-color:#1b8e7b;
+    --footer-color:#2a3039;
+    --hover-button-color:#277a7c;
+    --cell-background-color:#76ABAE;
+    --title-color:#31363F;
+    --shadowsize:3px;
+    --shadow-color:#5f5f5f;
+    --highlighted-color:#EEEEEE;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #EEEEEE;
+}
+
+html, body{
+    height: 100%;
+    background-color: var(--body-background-color);
+}
+
+#title-div{
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+#footer-div{
+    padding-left: 1em;
+}
+
+.content{
+    width: min(100vw , 50vh);
+    height: min(100vh, 200vw);
+    background-color: orange;
+    margin: 0 auto;
+}
+
+header{
+    background-color: var(--title-color);
+    height: 20%;
+}
+
+@media screen and (min-width: 330px) {
+    header {
+        background-image: url(images/ship.jpg);
+        background-size: cover;
+        background-position-y: 60%;
+    }
+}
+
+#playfield{
+    background-color: var(--cell-background-color);
+    aspect-ratio: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-content: space-between;
+    position: relative;
+}
+
+.cell{
+    background-color: var(--cell-background-color);
+    width: calc((100% / 9) - 7px);
+    height: calc((100% / 9) - 7px);
+    flex-shrink: 0;
+}
+
+.cell:hover{
+    background-color: #638c8f;
+}
+
+#buttonbar{
+    background-color: var(--background-color);
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#buttonbar button{
+    background-color: var(--button-color);
+    height: 33%;
+    width: 25%;
+    border-radius: 10px;
+    border-top: var(--shadowsize) solid var(--highlighted-color);
+    border-left: var(--shadowsize) solid var(--highlighted-color);
+    border-bottom: var(--shadowsize) solid var(--shadow-color);
+    border-right: var(--shadowsize) solid var(--shadow-color);
+}
+
+#buttonbar button:hover{
+    background-color: var(--hover-button-color);
+    transition-duration: 0.5s;
+    height: 34%;
+    width: 25%;
+    font-size:medium;
+    border-radius: 15px;
+    border-bottom: var(--shadowsize) solid var(--highlighted-color);
+    border-right: var(--shadowsize) solid var(--highlighted-color);
+    border-top: var(--shadowsize) solid var(--shadow-color);
+    border-left: var(--shadowsize) solid var(--shadow-color);
+}
+
+footer{
+    background-color: var(--footer-color);
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: smaller;
+}
+
+.covered{
+    border-top: var(--shadowsize) solid var(--highlighted-color);
+    border-left: var(--shadowsize) solid var(--highlighted-color);
+    border-bottom: var(--shadowsize) solid var(--shadow-color);
+    border-right: var(--shadowsize) solid var(--shadow-color);
+}
+
+.uncovered{
+    border: var(--shadowsize) solid var(--cell-background-color);
+}
+
+.symbol{
+    background-image: url("images/symbols.svg");
+    background-size: cover;
+}
+
+.symbol-1{
+    background-position-x: 0%;
+}
+
+.symbol-2{
+    background-position-x: 11%;
+}
+
+.symbol-3{
+    background-position-x: 22%;
+}
+
+.symbol-4{
+    background-position-x: 33%;
+}
+
+.symbol-5{
+    background-position-x: 44%;
+}
+
+.symbol-6{
+    background-position-x: 55%;
+}
+
+.symbol-7{
+    background-position-x: 66%;
+}
+
+.symbol-8{
+    background-position-x: 77%;
+}
+
+.symbol-flag{
+    background-position-x: 88%;
+}
+
+.symbol-mine{
+    background-position-x: 100%;
+}
+
+.hited-mine{
+    background-color: rgb(243, 23, 23);
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(53, 39, 39, 0.471);
+
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+
+#playfield:hover .overlay{
+    display: flex;
+}
+
+#playfield:not(:hover) .overlay{
+    display: none;
+}
+
+.overlay div{
+    background-color: rgb(235, 25, 25);
+    border: 3px solid black;
+    padding: 15px;
+    font-size: 4em;
+    border-radius: 15px;
+    color: rgb(234, 229, 229);
+}
